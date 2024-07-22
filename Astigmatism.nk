@@ -1,0 +1,409 @@
+set cut_paste_input [stack 0]
+version 14.0 v5
+push $cut_paste_input
+Group {
+ name Astigmatism
+ tile_color 0x404040ff
+ note_font "Bitstream Vera Sans Bold Italic"
+ note_font_color 0xb6b7a5ff
+ selected true
+ xpos -752
+ ypos 1579
+ addUserKnob {20 User}
+ addUserKnob {26 txt l "" +STARTLINE T "<b><font size=\"40\"><font color=\"#BAA655\">ASTIGMATISM</font></b>"}
+ addUserKnob {26 ""}
+ addUserKnob {41 Type T Wrapper.Type}
+ addUserKnob {41 Direction T Dissolve2.which}
+ addUserKnob {41 Amount T Dissolve1.which}
+ addUserKnob {41 Area T Wrapper.Area}
+ addUserKnob {26 ""}
+ addUserKnob {26 txt2 l "" +STARTLINE T "<div style=\"text-align: left; font-size: 10px; color: #666666; font-style: italic;\">\n  v 1.1 : 2023-05\n</div>"}
+}
+ Constant {
+  inputs 0
+  channels rgb
+  name Constant2
+  xpos -590
+  ypos 159
+ }
+ Radial {
+  cliptype none
+  invert true
+  area {{-Wrapper.Area} {-Wrapper.Area*1.5} {width+Wrapper.Area} {height+Wrapper.Area}}
+  softness {{parent.TimeBlur2.decimalFrameStepped}}
+  name Radial1
+  xpos -590
+  ypos 246
+ }
+set N28a588c0 [stack 0]
+push $N28a588c0
+ Input {
+  inputs 0
+  name InputIn
+  xpos -700
+  ypos 54
+ }
+ NoTimeBlur {
+  name NoTimeBlur1
+  xpos -700
+  ypos 182
+ }
+set Na33378b0 [stack 0]
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 1}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {1 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix12
+  xpos -920
+  ypos 368
+ }
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {1 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 1}
+    }
+  normalize true
+  name Matrix11
+  xpos -1030
+  ypos 368
+ }
+push 0
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {1 0 0 0 0 0 1}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix10
+  xpos -1140
+  ypos 368
+ }
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 1 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 1 0 0 0}
+    }
+  normalize true
+  name Matrix9
+  xpos -1250
+  ypos 368
+ }
+ Dissolve {
+  inputs 4+1
+  which {{parent.Dissolve2.which}}
+  name Dissolve4
+  xpos -1030
+  ypos 432
+ }
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 1 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 1 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix8
+  xpos -920
+  ypos 304
+ }
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 1 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 1 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix7
+  xpos -1030
+  ypos 304
+ }
+push 0
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 1 0 0 0 1 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix4
+  xpos -1140
+  ypos 304
+ }
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 1 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 1 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix1
+  xpos -1250
+  ypos 304
+ }
+ Dissolve {
+  inputs 4+1
+  which {{parent.Dissolve2.which}}
+  name Dissolve3
+  xpos -1140
+  ypos 432
+ }
+push 0
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 1 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 1 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix2
+  xpos -920
+  ypos 240
+ }
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 1 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 1 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix3
+  xpos -1030
+  ypos 240
+ }
+push 0
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 1 0 1 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix5
+  xpos -1140
+  ypos 240
+ }
+push $N28a588c0
+push $Na33378b0
+ Matrix {
+  inputs 1+1
+  matrix {
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 1 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 1 0 0 0}
+      {0 0 0 0 0 0 0}
+      {0 0 0 0 0 0 0}
+    }
+  normalize true
+  name Matrix6
+  xpos -1250
+  ypos 240
+ }
+ Dissolve {
+  inputs 4+1
+  name Dissolve2
+  xpos -1250
+  ypos 432
+ }
+push $Na33378b0
+ Dissolve {
+  inputs 4+1
+  which 1
+  name Dissolve1
+  xpos -1250
+  ypos 496
+ }
+set N1c1ccde0 [stack 0]
+ Blur {
+  size 3.1
+  name Blur1
+  xpos -1360
+  ypos 496
+ }
+push $N1c1ccde0
+ Merge2 {
+  inputs 2
+  operation from
+  name Merge2
+  xpos -1360
+  ypos 566
+ }
+ Expression {
+  expr3 clamp(r+g+b)
+  name Expression1
+  xpos -1360
+  ypos 630
+ }
+ Premult {
+  name Premult2
+  xpos -1360
+  ypos 694
+ }
+set Na3383580 [stack 0]
+ Multiply {
+  value 4
+  name Multiply1
+  xpos -1250
+  ypos 688
+ }
+ Blur {
+  size 1.3
+  name Blur2
+  xpos -1140
+  ypos 688
+ }
+push $Na33378b0
+ Merge2 {
+  inputs 2+1
+  name Merge3
+  xpos -810
+  ypos 694
+ }
+push $N28a588c0
+push $N1c1ccde0
+ Keyer {
+  operation "luminance key"
+  range {0.05000505038 0.4202166612 1 1}
+  name Keyer1
+  xpos -1250
+  ypos 560
+ }
+ Premult {
+  name Premult1
+  xpos -1250
+  ypos 630
+ }
+push $Na33378b0
+ Merge2 {
+  inputs 2+1
+  name Merge1
+  xpos -700
+  ypos 630
+ }
+push $N1c1ccde0
+ Switch {
+  inputs 3
+  which {{Wrapper.Type}}
+  name Switch1
+  xpos -700
+  ypos 694
+ }
+ TimeBlur {
+  divisions {{parent.Wrapper.divisions}}
+  shutter 0.999
+  shutteroffset start
+  shuttercustomoffset 0
+  name TimeBlur2
+  xpos -700
+  ypos 758
+  addUserKnob {20 User}
+  addUserKnob {7 decimalFrameStepped l "Decimal Frame Stepped"}
+  decimalFrameStepped {{((frame%1)*divisions)/divisions}}
+ }
+ NoOp {
+  name Wrapper
+  xpos -700
+  ypos 802
+  addUserKnob {20 User}
+  addUserKnob {7 Area R -500 500}
+  Area 150
+  addUserKnob {3 divisions}
+  divisions 10
+  addUserKnob {4 Type M {Astigmatism "Highlights Only" "Features Only"}}
+ }
+ Output {
+  name Output1
+  xpos -700
+  ypos 866
+ }
+push $Na3383580
+ Viewer {
+  frame_range 1068-1151
+  viewerProcess "httyd (P3)"
+  name Viewer1
+  xpos -1519
+  ypos 653
+ }
+end_group
